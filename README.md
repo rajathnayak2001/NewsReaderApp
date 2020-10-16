@@ -1,4 +1,3 @@
-NewsReaderAPP
 A responsive app built using android studio which uses Hackernews api to fetch top 20 tech news from the server and displays it on a list view.
 
 

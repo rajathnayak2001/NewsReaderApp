@@ -54,8 +54,20 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("link",link.get(i));
                 startActivity(intent);
             }
-        });
 
+        });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String share=link.get(i);
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT,share);
+                Intent chooser=intent.createChooser(intent,"Share this link");
+                startActivity(chooser);
+                return false;
+            }
+        });
 
     }
    public class DownloadTask extends AsyncTask<String, Void,String>
